@@ -24,8 +24,13 @@ export default class User {#
         return this.#ativo
     }
 
+    set nome(novoNome) {
+        if (novoNome === '') {
+            throw new Error('Formato Não Válido')
+        }
+        this.#nome = novoNome
+    }
     exibirInfos() {
-        const objUser = this.#montaObjUser()
-        return `${objUser.#nome}, ${objUser.#email}`
+        return `${this.nome}, ${this.email}`
     }
 }
